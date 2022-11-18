@@ -21,7 +21,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>3.3.1/version>
+				<version>3.3.1</version>
 				<configuration>
 				<path>/${project.artifactId}##${project.version}</path>
 				<url>http://3.22.63.74:8080/manager/text</url>
