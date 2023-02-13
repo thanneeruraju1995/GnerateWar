@@ -11,6 +11,6 @@ String version=resource.getString("version");%>
  <h3>First CICD project completed for NOV9PM batch by using jenkins and Ansible playbook combination with Roles concept</h3>
  <h4> Docker file functionality is working</h4>
  <h5>Docker project is completed by using ansible</h5>
- <h6> added change to check poll SCM functionality</h6>
+ <h6> added change to check poll SCM functionality.</h6>
 </body>
 </html>
