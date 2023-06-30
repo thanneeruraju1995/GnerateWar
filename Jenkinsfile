@@ -4,7 +4,7 @@ pipeline {
        stage('Build Code') {
            steps {
                sh "mvn clean package"
-               echo "Building Artifact for project"
+               echo "Building Artifacts for project"
                
            }
        }
