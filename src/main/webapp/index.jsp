@@ -7,6 +7,9 @@ String version=resource.getString("version");%>
 <html>
 <body>
 <h1>WELCOME TO  ANSIBLE</h1>
+<a href="#">This is a dead link</a>
+<a href="https://www.freecodecamp.org">This is a live link to freeCodeCamp</a>
+<a href="https://html.com/attributes/a-href/">more with a href attribute</a>
 <h2>War file is going to Deploy into amazon EC2 instance using github 
 "Successfully for the first project using Maven"</h2>
  <h3>First CICD project is completed for June2023 batch</h3>
