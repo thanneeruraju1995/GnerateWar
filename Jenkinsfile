@@ -30,26 +30,24 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image...'
-                // Assuming your Dockerfile is in the root directory of your repository
-                sh "docker build -t $DOCKER_IMAGE_NAME ."
+                // Dummy build command
+                sh "echo 'Simulating docker build'"
             }
         }
         
         stage('Push Docker Image') {
             steps {
                 echo 'Pushing Docker image...'
-                withCredentials([string(credentialsId: 'docker-hub-credentials', variable: 'DOCKER_HUB_CREDENTIALS')]) {
-                    sh "docker login -u <docker_username> -p $DOCKER_HUB_CREDENTIALS"
-                    sh "docker push $DOCKER_IMAGE_NAME"
-                }
+                // Dummy push command
+                sh "echo 'Simulating docker push'"
             }
         }
         
         stage('Deploy to Kubernetes') {
             steps {
                 echo 'Deploying to Kubernetes...'
-                sh "kubectl apply -f kubernetes/deployment.yaml --namespace $KUBE_NAMESPACE"
-                sh "kubectl rollout status deployment/myapp-deployment --namespace $KUBE_NAMESPACE"
+                // Dummy deploy command
+                sh "echo 'Simulating kubectl apply'"
             }
         }
     }
