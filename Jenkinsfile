@@ -30,6 +30,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image...'
+                // Assuming your Dockerfile is in the root directory of your repository
                 sh "docker build -t $DOCKER_IMAGE_NAME ."
             }
         }
@@ -60,12 +61,14 @@ pipeline {
         
         success {
             echo 'Pipeline succeeded'
-            sh 'send-notification.sh "Pipeline succeeded"'
+            // Replace this with your actual notification command or script
+            sh 'echo "Pipeline succeeded"'
         }
         
         failure {
             echo 'Pipeline failed'
-            sh 'send-notification.sh "Pipeline failed"'
+            // Replace this with your actual notification command or script
+            sh 'echo "Pipeline failed"'
         }
     }
 }
