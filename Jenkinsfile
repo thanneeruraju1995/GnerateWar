@@ -1,32 +1,31 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
-                // Clone your Git repository
-                checkout scm
+                echo 'Building..'
+                sh 'mvn clean package'
             }
         }
         
-        stage('Build') {
+        stage('Test') {
             steps {
-                // Build the Java application using Maven
-                sh 'mvn clean package'
+                echo 'Testing..'
+                // You can add your testing steps here
             }
         }
         
         stage('Deploy') {
             steps {
-                // Deploy the built application (example: copying to a server)
-                sh 'scp target/your-app.jar user@your-server:/path/to/deploy'
+                echo 'Deploying to AWS Linux Tomcat....'
+                sh 'scp target/SampleWebApp123##3.0-SNAPSHOT.war ec2-user@15.206.153.186:/path/to/tomcat/webapps/'
             }
         }
     }
-    
+
     post {
         always {
-            // Clean up or notify after the pipeline completes
             echo 'Pipeline completed'
         }
     }
