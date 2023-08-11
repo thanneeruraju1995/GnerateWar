@@ -1,72 +1,43 @@
 pipeline {
     agent any
     
-    environment {
-        DOCKER_IMAGE_NAME = 'myapp:latest'
-        KUBE_NAMESPACE = 'my-namespace'
-    }
-    
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                // Checkout code from a Git repository
+                git 'https://github.com/your-username/your-repo.git'
             }
         }
         
         stage('Build') {
             steps {
-                echo 'Building...'
-                sh 'mvn clean package'
+                // Build your project (replace with actual build commands)
+                sh 'mvn clean install'
             }
         }
         
         stage('Test') {
             steps {
-                echo 'Running tests...'
+                // Run tests (replace with actual test commands)
                 sh 'mvn test'
-            }
-        }
-        
-        stage('Build Docker Image') {
-            steps {
-                echo 'Building Docker image...'
-                // Dummy build command
-                sh "echo 'Simulating docker build'"
-            }
-        }
-        
-        stage('Push Docker Image') {
-            steps {
-                echo 'Pushing Docker image...'
-                // Dummy push command
-                sh "echo 'Simulating docker push'"
-            }
-        }
-        
-        stage('Deploy to Kubernetes') {
-            steps {
-                echo 'Deploying to Kubernetes...'
-                // Dummy deploy command
-                sh "echo 'Simulating kubectl apply'"
             }
         }
     }
     
     post {
         always {
-            echo 'Pipeline completed'
+            // Archive artifacts (replace with your specific paths)
+            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true
         }
         
         success {
-            echo 'Pipeline succeeded'
-            // Replace this with your actual notification command or script
-            sh 'echo "Pipeline succeeded"'
+            // Send a notification on success (e.g., email, Slack, etc.)
+            echo 'Build and tests were successful!'
         }
         
         failure {
-            echo 'Pipeline failed'
-            // Replace this with your actual notification command or script
-            sh 'echo "Pipeline failed"'
+            // Send a notification on failure (e.g., email, Slack, etc.)
+            echo 'Build or tests failed!'
         }
     }
 }
