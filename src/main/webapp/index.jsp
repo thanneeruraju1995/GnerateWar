@@ -13,6 +13,6 @@ String version=resource.getString("version");%>
 <h2>War file is going to Deploy into amazon EC2 instance using github 
 "Successfully for the first project using Maven"</h2>
  <h3>First CICD project is completed for June2023 batch</h3>
- <h4>Welocme to CICD pipeline concept With PP  </h4>
+ <h4>Welocme to CICD pipeline concept With PPkj  </h4>
  </body>
 </html>
